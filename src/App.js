@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Scoreboard from './components/Scoreboard';
+import CardList from './components/CardList';
 
-function App() {
+const App = () => {
+
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+  const [memory, setMemory] = useState([]);
+
+
+  const handleClick = (e) => {
+    const targetId = e.currentTarget.id;;
+
+    if (memory.includes(targetId)) {
+      resetGame();
+    } else {
+      setMemory(oldMemory => [...oldMemory, targetId]);
+      setScore(oldScore => oldScore + 1);
+    }
+  };
+
+  const resetGame = () => {
+    if (score > bestScore) {
+      setBestScore(score);
+    }
+
+    setScore(0);
+    setMemory([]);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Scoreboard score={score} bestScore={bestScore} />
+      <CardList sources={["a","b","c","d"]} onClick={handleClick} />
     </div>
   );
 }
