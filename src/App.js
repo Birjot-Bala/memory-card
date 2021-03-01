@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Scoreboard from './components/Scoreboard';
 import CardList from './components/CardList';
+import images from './images'
+import './styles/app.css'
 
 const App = () => {
 
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [memory, setMemory] = useState([]);
-
 
   const handleClick = (e) => {
     const targetId = e.currentTarget.id;;
@@ -29,10 +30,14 @@ const App = () => {
     setMemory([]);
   };
 
+  useEffect(() => {
+
+  }, []);
+
   return (
     <div className="App">
       <Scoreboard score={score} bestScore={bestScore} />
-      <CardList sources={["a","b","c","d"]} onClick={handleClick} />
+      <CardList sources={images} onClick={handleClick} />
     </div>
   );
 }

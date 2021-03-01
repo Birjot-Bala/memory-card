@@ -4,7 +4,7 @@ import '../styles/card.css'
 const Card = ({ id, source, onClick }) => {
     return (
         <button className="card" id={id} onClick={onClick}>
-            <img className="picture" src={source} alt={"card-" + id} />
+            <img className="image" src={source} alt={"card-" + id} />
         </button>
     )
 };
