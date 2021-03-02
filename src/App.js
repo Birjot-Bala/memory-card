@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Scoreboard from './components/Scoreboard';
 import CardList from './components/CardList';
 import images from './images'
 import './styles/app.css'
+
 
 const App = () => {
 
@@ -29,10 +30,6 @@ const App = () => {
     setScore(0);
     setMemory([]);
   };
-
-  useEffect(() => {
-
-  }, []);
 
   return (
     <div className="App">

@@ -1,3 +1,7 @@
+body {
+    background: #EEEDE7;
+}
+
 ul {
     display: flex;
     flex-wrap: wrap;
